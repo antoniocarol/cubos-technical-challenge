@@ -1,0 +1,132 @@
+/* Custom CSS for Movie Grid Layout - Precise Control with Percentages */
+
+.movies-grid-container {
+  display: grid;
+  background-color: rgba(156, 163, 175, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  
+  /* Mobile: 2 columns with better spacing */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  justify-items: stretch;
+  align-items: start;
+}
+
+.movies-grid-container .movie-card {
+  width: 100%;
+  aspect-ratio: 2/3;
+  height: auto;
+  max-height: none;
+  min-height: 240px;
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 768px) {
+  .movies-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 22px;
+  }
+  
+  .movies-grid-container .movie-card {
+    min-height: 280px;
+  }
+}
+
+/* Large Tablet: 4 columns */
+@media (min-width: 1024px) {
+  .movies-grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 24px;
+  }
+  
+  .movies-grid-container .movie-card {
+    min-height: 300px;
+  }
+}
+
+/* Desktop: 5 columns with auto rows (enable scrolling) */
+@media (min-width: 1280px) {
+  .movies-grid-container {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    gap: 18px;
+    padding: 24px;
+    /* Remove height restrictions to enable scrolling */
+    height: auto;
+    max-height: none;
+  }
+  
+  .movies-grid-container .movie-card {
+    min-height: 320px;
+    max-height: none;
+    aspect-ratio: 2/3;
+  }
+}
+
+/* Large Desktop: Optimize for bigger screens */
+@media (min-width: 1536px) {
+  .movies-grid-container {
+    max-height: none;
+    gap: 20px;
+    padding: 28px;
+  }
+  
+  .movies-grid-container .movie-card {
+    min-height: 360px;
+    max-height: none;
+    aspect-ratio: 2/3;
+  }
+}
+
+/* Loading skeleton adjustments */
+.movies-grid-skeleton {
+  display: grid;
+  background-color: rgba(156, 163, 175, 0.05);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  justify-items: stretch;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .movies-grid-skeleton {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-grid-skeleton {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .movies-grid-skeleton {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    gap: 22px;
+    padding: 26px;
+    max-height: none;
+  }
+}
+
+@media (min-width: 1536px) {
+  .movies-grid-skeleton {
+    max-height: none;
+    gap: 24px;
+    padding: 30px;
+  }
+}

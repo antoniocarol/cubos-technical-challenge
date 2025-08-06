@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+/* Import custom styles */
+@import "../styles/movies-grid.css";
+
+/* Import Radix Colors */
+@import '@radix-ui/colors/gray.css';
+@import '@radix-ui/colors/gray-dark.css';
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/blue-dark.css';
+@import '@radix-ui/colors/purple.css';
+@import '@radix-ui/colors/purple-dark.css';
+@import '@radix-ui/colors/mauve.css';
+@import '@radix-ui/colors/mauve-dark.css';
+
+:root {
+  /* Semantic color mapping for light theme */
+  --color-background: var(--mauve-1);
+  --color-foreground: var(--mauve-12);
+  --color-card: var(--mauve-2);
+  --color-card-foreground: var(--mauve-12);
+  
+  /* Primary colors from design */
+  --color-primary-default: #8E4EC6;
+  --color-primary-hover: #9A5CD0;
+  --color-primary-active: #8457AA;
+  --color-primary-disabled: #6F6D78;
+  
+  /* Secondary colors from design */
+  --color-secondary-default: #B744F714; /* 8% opacity */
+  --color-secondary-hover: #C150FF2E; /* 18% opacity */
+  --color-secondary-active: #B412F90A; /* 4% opacity */
+  --color-secondary-disabled: #EBEAF814; /* 49% opacity */
+  
+  /* Legacy semantic colors */
+  --color-primary: var(--color-primary-default);
+  --color-primary-foreground: white;
+  --color-secondary: var(--color-secondary-default);
+  --color-secondary-foreground: var(--mauve-11);
+  --color-muted: var(--mauve-2);
+  --color-muted-foreground: var(--mauve-11);
+  --color-border: var(--mauve-6);
+  --color-input: var(--mauve-3);
+  --color-ring: var(--color-primary-default);
+  --color-accent: var(--purple-4);
+  --color-accent-foreground: var(--purple-11);
+}
+
+.dark {
+  /* Semantic color mapping for dark theme - using dark variants */
+  --color-background: var(--mauve-dark-1);
+  --color-foreground: var(--mauve-dark-12);
+  --color-card: var(--mauve-dark-2);
+  --color-card-foreground: var(--mauve-dark-12);
+  
+  /* Primary colors from design - same in dark mode */
+  --color-primary-default: #8E4EC6;
+  --color-primary-hover: #9A5CD0;
+  --color-primary-active: #8457AA;
+  --color-primary-disabled: #6F6D78;
+  
+  /* Secondary colors from design - same in dark mode */
+  --color-secondary-default: #B744F714; /* 8% opacity */
+  --color-secondary-hover: #C150FF2E; /* 18% opacity */
+  --color-secondary-active: #B412F90A; /* 4% opacity */
+  --color-secondary-disabled: #EBEAF814; /* 49% opacity */
+  
+  /* Legacy semantic colors */
+  --color-primary: var(--color-primary-default);
+  --color-primary-foreground: white;
+  --color-secondary: var(--color-secondary-default);
+  --color-secondary-foreground: var(--mauve-dark-11);
+  --color-muted: var(--mauve-dark-2);
+  --color-muted-foreground: var(--mauve-dark-11);
+  --color-border: var(--mauve-dark-6);
+  --color-input: var(--mauve-dark-3);
+  --color-ring: var(--color-primary-default);
+  --color-accent: var(--purple-dark-4);
+  --color-accent-foreground: var(--purple-dark-11);
+}
+
+body {
+  background: #121113;
+  background-image: url('/assets/Background.svg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: var(--color-foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar styles */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Text shadow utilities */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Line clamp utilities for better text truncation */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced backdrop blur for better glass morphism */
+.backdrop-blur-cinematic {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Custom gradient overlays for better readability */
+.gradient-overlay-bottom {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+}
+
+.gradient-overlay-right {
+  background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Focus styles for better accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  .text-shadow-lg {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Better touch targets */
+  button, [role="button"] {
+    min-height: 44px;
+  }
+}
+
+.bg-boxes {
+  background-color: #23222599;
+}
