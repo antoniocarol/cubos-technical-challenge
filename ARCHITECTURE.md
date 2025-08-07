@@ -183,26 +183,6 @@ src/
 - **Design System:** Tokens consistentes
 - **API Abstraction:** Fácil troca de providers
 
-## 🔄 Migração do Projeto Anterior
-
-### Evolução Arquitetural
-| Aspecto | Versão Anterior | Nova Versão |
-|---------|----------------|-------------|
-| **Framework** | Vanilla JS | Next.js + React |
-| **Tipagem** | Sem tipagem | TypeScript |
-| **Estado** | DOM + variáveis globais | Zustand + React Query |
-| **Estilização** | CSS manual | Tailwind + Radix Colors |
-| **Responsividade** | Media queries manuais | Mobile-first + Tailwind |
-| **Performance** | Sem otimizações | Code splitting + caching |
-
-## 💡 Próximos Passos
-
-1. **Implementação dos Componentes UI**
-2. **Criação do Header com busca e toggle de tema**
-3. **Desenvolvimento dos filtros personalizados**
-4. **Página de detalhes do filme**
-5. **Testes e refinamentos de UX**
-
 ---
 
 Esta arquitetura foi pensada para ser **escalável**, **maintível** e **performática**, seguindo as melhores práticas atuais do ecossistema React/Next.js e atendendo aos requisitos específicos do desafio técnico da Cubos.

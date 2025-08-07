@@ -16,8 +16,8 @@ Uma aplicação web responsiva para pesquisa e visualização de filmes, desenvo
 
 ## 📋 Pré-requisitos
 
-- Node.js 18+ 
-- npm, yarn, pnpm ou bun
+- Node.js 18+ (Owner node: v18.20.5)
+- npm, yarn, pnpm ou bun (Owner npm: 10.9.2)
 - Chave da API do TMDB
 
 ## ⚙️ Configuração
@@ -61,12 +61,6 @@ NEXT_PUBLIC_TMDB_API_KEY=sua_chave_aqui
 ```bash
 # Desenvolvimento
 npm run dev
-
-# Build de produção
-npm run build
-
-# Executar build de produção
-npm start
 
 # Linting
 npm run lint
