@@ -1,2 +1,2 @@
 export { Header } from './Header'
-export { MoviesGrid, MoviesGridSkeleton } from './MoviesGrid'
+export { MoviesGrid } from './MoviesGrid'

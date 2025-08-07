@@ -15,7 +15,7 @@ import {
   useDiscoverMovies,
   useDebounce,
 } from "@/hooks";
-import { Movie, SearchFilters } from "@/types";
+import { Movie, MoviesResponse, SearchFilters } from "@/types";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,6 +23,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState<SearchFilters>({});
   const [isFilterPanelOpen, setIsFilterPanelOpen] = useState(false);
+  const [previousData, setPreviousData] = useState<MoviesResponse>();
 
   // Debounce search query to avoid too many API calls
   const debouncedSearchQuery = useDebounce(searchQuery, 500);
@@ -77,6 +78,7 @@ export default function Home() {
   };
 
   const handlePageChange = (page: number) => {
+    setPreviousData(currentData);
     setCurrentPage(page);
   };
 
@@ -101,7 +103,7 @@ export default function Home() {
 
         <main className="flex-1 flex items-center justify-center px-8">
           <div className="text-center">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-red-100 rounded-xs flex items-center justify-center mx-auto mb-4">
               <svg
                 className="w-8 h-8 text-red-500"
                 fill="none"
@@ -167,13 +169,13 @@ export default function Home() {
           />
 
           {/* Pagination */}
-          {!isLoading && movies.length > 0 && currentData && (
+          {(!isLoading && movies.length > 0 && currentData) || (currentPage != 1) ? (
             <SimplePagination
               currentPage={currentPage}
-              totalPages={currentData.total_pages}
+              totalPages={currentData?.total_pages || previousData?.total_pages}
               onPageChange={handlePageChange}
             />
-          )}
+          ): null}
         </section>
       </main>
 

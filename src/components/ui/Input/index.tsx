@@ -7,80 +7,31 @@ export interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, ...props }, ref) => {
-    const [isFocused, setIsFocused] = React.useState(false)
-    const [hasValue, setHasValue] = React.useState(false)
-
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(true)
-      props.onFocus?.(e)
-    }
-
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(false)
-      props.onBlur?.(e)
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setHasValue(e.target.value.length > 0)
-      props.onChange?.(e)
-    }
-
+  ({ className, label, ...props }, ref) => {
     return (
       <div className="flex flex-col gap-2">
         {label && (
-          <label className={cn(
-            "text-sm font-medium transition-colors duration-200",
-            isFocused ? "text-purple-11" : "text-mauve-11"
-          )}>
+          <label className="text-sm font-medium text-gray-400">
             {label}
           </label>
         )}
-        
-        <div className="relative">
-          <input
-            type={type}
-            className={cn(
-              // Base styles
-              "flex h-12 w-full rounded-xs border bg-background px-3 py-2 text-base transition-all duration-200",
-              "file:border-0 file:bg-transparent file:text-sm file:font-medium",
-              "placeholder:text-mauve-9 placeholder:transition-colors placeholder:duration-200",
-              "focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-offset-0 focus-visible:inset-ring-0",
-              "disabled:cursor-not-allowed disabled:opacity-50",
-              
-              // State-based styles
-              isFocused ? [
-                "border-[var(--color-primary-default)] ring-[var(--color-primary-default)] shadow-sm",
-                "placeholder:text-white/70"
-              ] : hasValue ? [
-                "border-[var(--color-primary-default)]/50",
-                "text-white"
-              ] : [
-                "border-white/20",
-                "text-white"
-              ],
-              
-              // Background color
-              "bg-black/20 backdrop-blur-sm",
-              
-              className
-            )}
-            ref={ref}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            {...props}
-          />
-          
-          {/* Focus ring effect */}
-          {isFocused && (
-            <div className="absolute inset-0 rounded-xs ring-2 ring-purple-7 ring-offset-2 pointer-events-none" />
+        <input
+          ref={ref}
+          className={cn(
+            "h-12 w-full rounded-xs px-3 py-2",
+            "bg-black/40 border border-white/20",
+            "text-white placeholder:text-gray-500",
+            "focus:border-purple-500 focus:outline-none",
+            "disabled:opacity-50 disabled:cursor-not-allowed",
+            className
           )}
-        </div>
+          {...props}
+        />
       </div>
     )
   }
 )
+
 Input.displayName = "Input"
 
 export { Input }

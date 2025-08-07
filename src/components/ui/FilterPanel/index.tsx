@@ -13,7 +13,6 @@ interface FilterPanelProps {
 export function FilterPanel({ isOpen, filters, onFiltersChange }: FilterPanelProps) {
   const { data: genres } = useGenres()
   
-  // Parse genres from comma-separated string
   const selectedGenres = filters.genre ? filters.genre.split(',') : []
   
   const handleGenreToggle = (genreId: string) => {
@@ -81,7 +80,7 @@ export function FilterPanel({ isOpen, filters, onFiltersChange }: FilterPanelPro
               <button
                 key={genre.id}
                 onClick={() => handleGenreToggle(genre.id.toString())}
-                className={`px-3 py-1.5 text-sm rounded-full border transition-all ${
+                className={`px-3 py-1.5 text-sm rounded-xs border transition-all ${
                   selectedGenres.includes(genre.id.toString())
                     ? 'bg-purple-500/20 border-purple-500 text-purple-300'
                     : 'bg-black/20 border-white/10 text-gray-300 hover:border-white/20'
@@ -141,7 +140,7 @@ export function FilterPanel({ isOpen, filters, onFiltersChange }: FilterPanelPro
             {selectedGenres.map(genreId => {
               const genre = genres?.find(g => g.id === parseInt(genreId))
               return genre ? (
-                <span key={genreId} className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+                <span key={genreId} className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-xs text-xs">
                   {genre.name}
                   <button onClick={() => handleGenreToggle(genreId)}>
                     <X className="w-3 h-3" />
@@ -150,7 +149,7 @@ export function FilterPanel({ isOpen, filters, onFiltersChange }: FilterPanelPro
               ) : null
             })}
             {filters.year && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-xs text-xs">
                 {filters.year}
                 <button onClick={() => onFiltersChange({ ...filters, year: undefined })}>
                   <X className="w-3 h-3" />
@@ -158,7 +157,7 @@ export function FilterPanel({ isOpen, filters, onFiltersChange }: FilterPanelPro
               </span>
             )}
             {filters.sortBy && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-purple-500/20 text-purple-300 rounded-xs text-xs">
                 {filters.sortBy.includes('desc') ? '↓' : '↑'} Ordenado
                 <button onClick={() => onFiltersChange({ ...filters, sortBy: undefined })}>
                   <X className="w-3 h-3" />

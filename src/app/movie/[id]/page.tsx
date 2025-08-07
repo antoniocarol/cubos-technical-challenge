@@ -131,6 +131,7 @@ export default function MovieDetailsPage() {
               alt={movie.title}
               fill
               className="object-cover"
+              unoptimized={true}
               onError={() => setBackdropError(true)}
               priority
             />
@@ -155,6 +156,7 @@ export default function MovieDetailsPage() {
                   height={800}
                   className="object-cover w-full h-full lg:min-w-96"
                   sizes="320px"
+                  unoptimized={true}
                   onError={() => setImageError(true)}
                 />
               ) : (
@@ -197,7 +199,7 @@ export default function MovieDetailsPage() {
                     {movie.tagline}
                   </p>
                 </div>
-                <div className="flex max-h-20 max-lg:max-h-1/2 min-w-96 justify-evenly max-lg:justify-normal max-lg:gap-2.5">
+                <div className="flex max-h-20 max-lg:max-h-1/2 min-w-96 justify-evenly max-lg:justify-normal max-lg:gap-2.5 items-center">
                   <div className="bg-boxes backdrop-blur-sm border border-white/10 rounded-xs p-4 max-lg:w-4/12">
                     <p className="text-xs font-medium uppercase tracking-wider text-gray-400 mb-1">
                       POPULARIDADE
@@ -215,7 +217,7 @@ export default function MovieDetailsPage() {
                       {movie.vote_count.toLocaleString("pt-BR")}
                     </p>
                   </div>
-                  <CircularRating rating={movie.vote_average} />
+                  <CircularRating rating={movie.vote_average} size={95} />
                 </div>
               </div>
 
@@ -241,7 +243,7 @@ export default function MovieDetailsPage() {
                       {movie.genres.map((genre) => (
                         <span
                           key={genre.id}
-                          className="px-4 py-2 text-sm font-medium rounded-"
+                          className="px-4 py-2 text-sm font-medium rounded-xs"
                           style={{
                             backgroundColor: "rgba(139, 92, 246, 0.2)",
                             color: "#c4b5fd",
