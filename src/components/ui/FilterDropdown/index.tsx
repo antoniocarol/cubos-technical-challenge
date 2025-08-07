@@ -20,7 +20,7 @@ export function FilterDropdown({ onToggle, isOpen, className }: FilterDropdownPr
         onClick={onToggle}
         className={cn(
           "p-3 py-6  text-white border-white/20 rounded-xs backdrop-blur-sm transition-all duration-200 ml-2",
-          isOpen && "bg-[var(--color-primary-default)]/40"
+          isOpen && "bg-pagination-default"
         )}
       >
         <Image 

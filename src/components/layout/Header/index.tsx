@@ -15,9 +15,9 @@ export function Header({ className }: HeaderProps) {
 
   return (
     <header className={cn(
-      "sticky top-0 z-50 w-full border-b border-gray-300/15",
+      "sticky top-0 z-50 w-full border-b border-gray-300/15 bg-background",
       className
-    )} style={{backgroundColor: '#121113'}}>
+    )}>
       <div className="max-w-[97vw] mx-auto flex h-16 items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -31,7 +31,7 @@ export function Header({ className }: HeaderProps) {
               variant="secondary"
               size="lg"
               onClick={toggleTheme}
-              className="p-4 bg-[var(--color-secondary-default)] hover:bg-[var(--color-secondary-hover)] text-white border-transparent rounder-xs backdrop-blur-sm transition-all duration-200 flex items-center gap-3"
+              className="p-4 bg-[var(--purple-1)] hover:bg-[var(--purple-4)] text-white border-transparent rounder-xs backdrop-blur-sm transition-all duration-200 flex items-center gap-3"
             >
               {theme === 'dark' ? (
                 <Image 

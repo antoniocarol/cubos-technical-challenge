@@ -35,8 +35,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           
           // Secondary variant (from design specs)
           variant === "secondary" && [
-            "bg-[var(--color-secondary-default)] text-white border border-transparent",
-            "hover:bg-[var(--color-secondary-hover)] hover:shadow-sm hover:scale-[1.02]",
+            "bg-filter text-white border border-transparent",
+            "hover:bg-[var(--purple-3)] hover:shadow-sm hover:scale-[1.02]",
             "active:bg-[var(--color-secondary-active)] active:scale-[0.98]",
             "disabled:bg-[var(--color-secondary-disabled)] disabled:text-white/50 disabled:shadow-none disabled:scale-100"
           ],

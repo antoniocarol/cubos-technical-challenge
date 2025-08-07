@@ -1,95 +1,100 @@
 @import "tailwindcss";
 
-/* Import custom styles */
-@import "../styles/movies-grid.css";
-
-/* Import Radix Colors */
-@import '@radix-ui/colors/gray.css';
-@import '@radix-ui/colors/gray-dark.css';
-@import '@radix-ui/colors/blue.css';
-@import '@radix-ui/colors/blue-dark.css';
-@import '@radix-ui/colors/purple.css';
-@import '@radix-ui/colors/purple-dark.css';
-@import '@radix-ui/colors/mauve.css';
-@import '@radix-ui/colors/mauve-dark.css';
-
 :root {
-  /* Semantic color mapping for light theme */
-  --color-background: var(--mauve-1);
-  --color-foreground: var(--mauve-12);
-  --color-card: var(--mauve-2);
-  --color-card-foreground: var(--mauve-12);
-  
-  /* Primary colors from design */
-  --color-primary-default: #8E4EC6;
-  --color-primary-hover: #9A5CD0;
-  --color-primary-active: #8457AA;
-  --color-primary-disabled: #6F6D78;
-  
-  /* Secondary colors from design */
-  --color-secondary-default: #B744F714; /* 8% opacity */
-  --color-secondary-hover: #C150FF2E; /* 18% opacity */
-  --color-secondary-active: #B412F90A; /* 4% opacity */
-  --color-secondary-disabled: #EBEAF814; /* 49% opacity */
-  
-  /* Legacy semantic colors */
-  --color-primary: var(--color-primary-default);
-  --color-primary-foreground: white;
-  --color-secondary: var(--color-secondary-default);
-  --color-secondary-foreground: var(--mauve-11);
-  --color-muted: var(--mauve-2);
-  --color-muted-foreground: var(--mauve-11);
-  --color-border: var(--mauve-6);
-  --color-input: var(--mauve-3);
-  --color-ring: var(--color-primary-default);
-  --color-accent: var(--purple-4);
-  --color-accent-foreground: var(--purple-11);
+  /* Mauve - Light */
+  --mauve-1: #211F26;
+  --mauve-2: #65636D;
+  --mauve-3: #84828E;
+  --mauve-4: #8E8C99;
+  --mauve-5: #BCBAC7;
+  --mauve-6: #D0CDD7;
+  --mauve-7: #DBD8E0;
+  --mauve-8: #E3DFE6;
+  --mauve-9: #EAE7EC;
+  --mauve-10: #F2EFF3;
+  --mauve-11: #FAF9FB;
+  --mauve-12: #FDFCFD;
+
+  /* Purple - Light */
+  --purple-1: #402060;
+  --purple-2: #8145B5;
+  --purple-3: #8347B9;
+  --purple-4: #8E4EC6;
+  --purple-5: #BE93E4;
+  --purple-6: #D1AFEC;
+  --purple-7: #E0C4F4;
+  --purple-8: #EAD5F9;
+  --purple-9: #F2E2FC;
+  --purple-10: #F7EDFE;
+  --purple-11: #FBF7FE;
+  --purple-12: #FEFCFE;
+
+  /* Defaults */
+  --background: var(--mauve-1);
+  --foreground: var(--mauve-1);
+  --accent: var(--purple-9);
 }
 
-.dark {
-  /* Semantic color mapping for dark theme - using dark variants */
-  --color-background: var(--mauve-dark-1);
-  --color-foreground: var(--mauve-dark-12);
-  --color-card: var(--mauve-dark-2);
-  --color-card-foreground: var(--mauve-dark-12);
-  
-  /* Primary colors from design - same in dark mode */
-  --color-primary-default: #8E4EC6;
-  --color-primary-hover: #9A5CD0;
-  --color-primary-active: #8457AA;
-  --color-primary-disabled: #6F6D78;
-  
-  /* Secondary colors from design - same in dark mode */
-  --color-secondary-default: #B744F714; /* 8% opacity */
-  --color-secondary-hover: #C150FF2E; /* 18% opacity */
-  --color-secondary-active: #B412F90A; /* 4% opacity */
-  --color-secondary-disabled: #EBEAF814; /* 49% opacity */
-  
-  /* Legacy semantic colors */
-  --color-primary: var(--color-primary-default);
-  --color-primary-foreground: white;
-  --color-secondary: var(--color-secondary-default);
-  --color-secondary-foreground: var(--mauve-dark-11);
-  --color-muted: var(--mauve-dark-2);
-  --color-muted-foreground: var(--mauve-dark-11);
-  --color-border: var(--mauve-dark-6);
-  --color-input: var(--mauve-dark-3);
-  --color-ring: var(--color-primary-default);
-  --color-accent: var(--purple-dark-4);
-  --color-accent-foreground: var(--purple-dark-11);
+[class="dark"] {
+  /* Mauve - Dark */
+  --mauve-1: #121113;
+  --mauve-2: #1A191B;
+  --mauve-3: #232225;
+  --mauve-4: #2B292D;
+  --mauve-5: #323035;
+  --mauve-6: #3C393F;
+  --mauve-7: #49474E;
+  --mauve-8: #625F69;
+  --mauve-9: #6F6D78;
+  --mauve-10: #7C7A85;
+  --mauve-11: #B5B2BC;
+  --mauve-12: #EEEEF0;
+
+  /* Purple - Dark */
+  --purple-1: #3D224E;
+  --purple-2: #18111B;
+  --purple-3: #1E1523;
+  --purple-4: #48295C;
+  --purple-5: #54346B;
+  --purple-6: #664282;
+  --purple-7: #8457AA;
+  --purple-8: #8E4EC6;
+  --purple-9: #9A5CD0;
+  --purple-10: #D19DFF;
+  --purple-11: #ECD9FA;
+  --purple-12: #F1DDFFFA;
+
+  /* Defaults */
+  --background: var(--mauve-1);
+  --foreground: var(--mauve-3);
+  --accent: var(--purple-9);
 }
+
+ /* Random components utility classes */
+.bg-background     { background-color: var(--background); }
+.text-foreground   { color: var(--foreground); }
+.bg-accent         { background-color: var(--accent); }
+
+.bg-filter { background-color: var(--purple-1); opacity: 0.5;}
+.bg-pagination-default   { background-color: var(--purple-4); }
+.bg-pagination-hover     { background-color: var(--mauve-6); }
+.bg-pagination-active    { background-color: var(--mauve-3); }
+.bg-pagination-disabled  { background-color: var(--mauve-3); opacity: 0.5; cursor: not-allowed; }
+
+.text-accent       { color: var(--accent); }
 
 body {
-  background: #121113;
+  background-color: var(--mauve-1);
+  color: var(--color-foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  min-height: 100vh;
+
   background-image: url('/assets/Background.svg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  color: var(--color-foreground);
-  font-family: system-ui, -apple-system, sans-serif;
-  font-feature-settings: "rlig" 1, "calt" 1;
-  min-height: 100vh;
 }
 
 /* Custom scrollbar styles */
@@ -119,52 +124,9 @@ body {
   -webkit-line-clamp: 2;
 }
 
-.line-clamp-3 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
-
 /* Smooth scrolling behavior */
 html {
   scroll-behavior: smooth;
-}
-
-/* Enhanced backdrop blur for better glass morphism */
-.backdrop-blur-cinematic {
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-}
-
-/* Custom gradient overlays for better readability */
-.gradient-overlay-bottom {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-}
-
-.gradient-overlay-right {
-  background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-}
-
-/* Animation utilities */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* Focus styles for better accessibility */
-.focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black;
 }
 
 /* Mobile-specific improvements */

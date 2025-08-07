@@ -45,7 +45,7 @@ export function SearchBar({ onSearch, placeholder = "Pesquisar por filmes", clas
           placeholder={placeholder}
           value={searchQuery}
           onChange={handleSearchChange}
-          className="w-full pl-4 pr-12 sm:pr-10 h-12 bg-black/20 border-white/20 text-white placeholder-white/70 focus:border-[var(--color-primary-default)] focus:ring-[var(--color-primary-default)] rounded-xs text-base relative z-10 backdrop-blur-sm"
+          className="w-full pl-4 pr-12 sm:pr-10 h-12 bg-black/20 border-white/20 text-white placeholder-white/70 focus:border-[var(--purple-9)] focus:ring-[var(--color-primary-default)] rounded-xs text-base relative z-10 backdrop-blur-sm"
         />
   
     </form>

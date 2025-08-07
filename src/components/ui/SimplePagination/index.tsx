@@ -10,28 +10,34 @@ interface SimplePaginationProps {
 
 export function SimplePagination({
   currentPage,
-  totalPages,
+  totalPages = 1,
   onPageChange,
+  className,
 }: SimplePaginationProps) {
   const maxVisible = 5;
   const start = Math.max(1, currentPage - 2);
-  const end = Math.min(totalPages || 0, start + maxVisible - 1);
+  const end = Math.min(totalPages, start + maxVisible - 1);
   const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
-  const buttonClass =
-    "h-10 px-3 rounded bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer";
+  const baseButtonClass = "h-10 w-10 rounded-xs text-white flex items-center justify-center transition-colors";
+  const defaultClass = "bg-pagination-default hover:bg-pagination-hover active:bg-pagination-active";
+  const disabledClass = "bg-pagination-disabled";
 
   return (
-    <nav className="flex justify-center items-center gap-2">
+    <nav className={cn("flex justify-center items-center gap-2", className)}>
       {/* Previous */}
       <button
         onClick={() => onPageChange(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1}
-        className={buttonClass}
+        className={cn(
+          baseButtonClass,
+          currentPage === 1 ? disabledClass : defaultClass,
+          'w-14'
+        )}
       >
         <Image
           src="/assets/chevron-left.svg"
-          alt="Next"
+          alt="Previous"
           width={18}
           height={18}
           style={{ filter: "invert(1)" }}
@@ -43,7 +49,10 @@ export function SimplePagination({
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={cn(buttonClass, page === currentPage && "bg-purple-800", 'w-10', 'h-10')}
+          className={cn(
+            baseButtonClass,
+            page === currentPage ? "bg-pagination-active" : defaultClass
+          )}
         >
           {page}
         </button>
@@ -51,9 +60,13 @@ export function SimplePagination({
 
       {/* Next */}
       <button
-        onClick={() => onPageChange(Math.min(totalPages || 0, currentPage + 1))}
+        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages}
-        className={buttonClass}
+        className={cn(
+          baseButtonClass,
+          currentPage === totalPages ? disabledClass : defaultClass,
+          'w-14'
+        )}
       >
         <Image
           src="/assets/chevron-right.svg"
